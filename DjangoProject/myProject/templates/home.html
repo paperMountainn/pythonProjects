@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Home</h1>
+    <h3>{{greeting|capfirst|upper}}</h3>
+    <p>Hi I am Zoe new intern</p>
+<ul>
+    <li>{{name}}</li>
+    <li>{{about}}</li>
+</ul>
+
+<h2>Stuffs that i like</h2>
+<ul>
+    {% for item in stuffs_i_like %}
+        {% if item == "mom" %}
+            <li>{{forloop.counter}} - Laobu is cominggggg bye</li>
+        {% else %}
+            <li>{{forloop.counter}} - {{item}}</li>
+        {% endif %} 
+    {% endfor%}
+    
+</ul>
+    
+{% endblock content %}
