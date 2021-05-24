@@ -29,11 +29,11 @@ class SampleForm(forms.ModelForm):
             "price"
         ]
 
-    def clean_email(self, *args, **kwargs):
-        email = self.cleaned_data.get("email")
-        if not email.endswith("edu"):
-            raise forms.ValidationError("This is not a valid email.")
-        return email
+    # def clean_email(self, *args, **kwargs):
+    #     email = self.cleaned_data.get("email")
+    #     if not email.endswith("edu"):
+    #         raise forms.ValidationError("This is not a valid email.")
+    #     return email
 
 
 # Raw form
