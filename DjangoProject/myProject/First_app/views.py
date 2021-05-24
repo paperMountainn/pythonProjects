@@ -1,30 +1,27 @@
-from First_app.apps import FirstAppConfig
-from django.core.files.base import ContentFile
-from django.db.models.query import QuerySet
 from django.shortcuts import redirect, render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import First_app
 from .forms import SampleForm, sampleDjangoForm
 # Create your views here.
 
-# hardcoded views
-def firstapp_home_view(request, *args, **kwargs):
-    my_context ={
-        "greeting":"hello there!",
-        "name": "My name is Zoe,",
-        "about": "I am from SUTD",
-        "stuffs_i_like": ["Code", "Cats", "Art", "mom"],
-    }
-    # return HttpResponse("<h1>Hello World</h1>")s
-    return render(request, "home.html", my_context)
+# # hardcoded views
+# def firstapp_home_view(request, *args, **kwargs):
+#     my_context ={
+#         "greeting":"hello there!",
+#         "name": "My name is Zoe,",
+#         "about": "I am from SUTD",
+#         "stuffs_i_like": ["Code", "Cats", "Art", "mom"],
+#     }
+#     # return HttpResponse("<h1>Hello World</h1>")s
+#     return render(request, "home.html", my_context)
 
-def firstapp_contacts_view(request, *args, **kwargs):
-    my_context = {
-        "spirit_animal": "<p>Doge</p>",
-        "name": "Zoe",
-        "number": 123,
-    }
-    return render(request, "contacts.html", my_context )
+# def firstapp_contacts_view(request, *args, **kwargs):
+#     my_context = {
+#         "spirit_animal": "<p>Doge</p>",
+#         "name": "Zoe",
+#         "number": 123,
+#     }
+#     return render(request, "contacts.html", my_context )
 
 # db views
 def firstapp_my_description_view(request):
@@ -33,7 +30,7 @@ def firstapp_my_description_view(request):
     context = {
         "object": obj
     }
-    return render(request, "myself/details.html", context)
+    return render(request, "details.html", context)
 
 # db view, but rendered dynamically according to the id
 def firstapp_my_decription_dynamic_view(request, my_id):
@@ -44,7 +41,7 @@ def firstapp_my_decription_dynamic_view(request, my_id):
         "object": obj
     }
 
-    return render(request, "myself/details.html", context)
+    return render(request, "details.html", context)
 
 def firstapp_descr_list_view(request):
     queryset = First_app.objects.all()
