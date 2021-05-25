@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 
+
 # Create your models here.
 class First_app(models.Model):
     title = models.CharField(max_length=100)
@@ -10,5 +11,6 @@ class First_app(models.Model):
     is_helpless = models.BooleanField(default=True)
 
     def get_absolute_url(self):
-        # return f"/firstapp/{self.id}/"
-        return reverse("descr-detail", kwargs={"my_id": self.id})
+        return f"{self.id}/"
+        # return reverse("descr-detail", kwargs={"my_id": {self.id}})
+

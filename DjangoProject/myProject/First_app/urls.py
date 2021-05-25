@@ -14,7 +14,7 @@ app_name = "first_app"
 
 urlpatterns = [
     path('onedescr/', firstapp_my_description_view, name="descr"),
-    path('<int:my_id>/', firstapp_my_decription_dynamic_view, name="descr-detail"),
+    path('list/<int:my_id>/', firstapp_my_decription_dynamic_view, name="descr-detail"),
     path('list/', firstapp_descr_list_view, name="descr-list"),
     path('form/', firstapp_form_create_view, name="form"),
     path('djangoform/', firstapp_django_form_view, name="django-form"),
